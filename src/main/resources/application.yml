@@ -1,0 +1,28 @@
+server:
+  port: 8084
+#  tomcat:
+#    max-http-form-post-size: 50MB
+#spring:
+#  datasource:
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    url: jdbc:mysql://47.106.211.118:3306/app_ershou?serverTimezone=GMT%2b8
+#    username: root
+#    password: xsr2004217
+#
+#  servlet:
+#    multipart:
+#      enabled: true
+#      max-file-size: 20MB
+#      max-request-size: 50MB
+##mybatis:
+##  mapper-locations: classpath:mapper/*.xml/
+##    configuration:
+##        log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+#  tomcat:
+#
+#mybatis-plus:
+#  configuration:
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+##  global-config:
+##    db-config:
+##      id-type: assign_id
