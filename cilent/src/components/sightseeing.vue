@@ -7,7 +7,8 @@
           :src="item.src"
           fit="fill"
           @mouseenter="displayOverlay(index)"
-          @mouseleave="hideOverlay(index)">
+          @mouseleave="hideOverlay(index)"
+          @click="clickImg(item,index)">
       </el-image>
       <div class="image-overlay" :class="{ 'show-overlay': showOverlay === index }">
         <h3>{{item.title}}</h3>
@@ -74,6 +75,16 @@ export default {
     },
     hideOverlay(index) {
       this.showOverlay = false;
+    },
+    //点击图片进行跳转，传item和index
+    clickImg(item,index){
+      this.$router.push({
+        name:'detail',
+        params:{
+          src:item.src,
+          title:item.title,
+        }
+      })
     }
   }
 }

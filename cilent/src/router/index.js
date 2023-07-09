@@ -45,6 +45,10 @@ const router = new VueRouter({
                     path:'/detail',
                     component:detail,
                     name:'detail',
+                    props:{
+                        src:"",
+                        title:"标题"
+                    }
                 }
             ]
         },

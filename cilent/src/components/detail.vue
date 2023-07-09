@@ -50,8 +50,19 @@
 
 <script>
 import "../style/common.less"
+import axios from "axios";
 export default {
   name: "detail.vue",
+  props:{
+    src:{
+      type:String,
+      default:""
+    },
+    title: {
+      type:String,
+      default:"标题"
+    }
+  },
   data(){
     return{
       dataList:{
@@ -66,6 +77,21 @@ export default {
   mounted() {
     //这里应该拿到组件传的值，然后发一个ajax从后端获取该item对应的那个对象
     //获取到后更新数组
+    console.log(this.$route.params.src)
+    console.log(this.$route.params.title)
+    //发ajax请求到后端
+    axios({
+      method: 'get',
+      headers: {'X-Requested-With': 'XMLHttpRequest'},
+      params: {
+        src: this.$route.params.src,
+        title:this.$route.params.title
+      },
+      timeout: 5000,
+      responseType: 'json', // 默认值
+      url: 'http://localhost:8084',
+
+    })
   }
 
 }
