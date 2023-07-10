@@ -4,8 +4,7 @@
 - springboot项目构建，名为gotoWEINAN_project。项目jdk：1.8，springboot版本2.7.13稳定版。配置application.yml文件，添加port为8084
 - 前端vue项目构建，嵌套在springboot项目下面，名为gotoWEINAN_client
 - 设计前端架构
-
-初步设计为：首页，文化与历史，旅游景点，美食餐饮，留言箱
+初步设计为：首页，文化与历史，旅游景点，美食餐饮
 
 添加功能：
 
@@ -23,7 +22,7 @@ time：大约2.5h
 添加功能：
 1. 添加detail组件，用于点击每个图片后跳转的详情页面。详情页面中有图片，背景介绍，标题，作者等信息
 这些将通过上一个组件传入一个item，然后在detail的挂载钩子中向后端发ajax请求，获取item的各项值并赋值给自己的dataList进行渲染
-time：大约30min
+2. time：大约30min
 
 ## 第三次提交
  
@@ -34,11 +33,17 @@ time：大约30min
 测试springboot和数据库的连接，添加mybatis-plus（直接用接口算了）
 2. 可以重复点击路由不报错。
 解决办法：对于高版本的vue-router添加一个回调函数即可
-time：47min
+3. time：47min
 
 ## 第四次提交
 添加功能：
 1. 后端跨域配置CorsConfig，架构包构建，前后端连接测试，后端与数据库连接测试，ok，基本完善功能
 2. 完善detail.vue，在mounted中发ajax，动态构建，测试ok
 time：1h20min
+
+## 第五次提交
+1. 全局图片圆角调整
+2. 完善foods，culture逻辑，已经可交作业
+3. 数据基本录入mysql数据库
+4. time：1h
 
