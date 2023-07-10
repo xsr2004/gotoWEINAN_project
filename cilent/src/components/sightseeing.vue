@@ -82,7 +82,6 @@ export default {
         name:'detail',
         params:{
           src:item.src,
-          title:item.title,
         }
       })
     }
@@ -101,7 +100,7 @@ export default {
      .image-wrapper{
        flex-basis: calc(25% - 20px); /* 每行容纳4个el-image，减去间隔的宽度 */
        margin: 10px;
-       height: 400px;
+       height: 350px;
        cursor:pointer;
        position: relative;
        overflow: hidden;
@@ -109,8 +108,8 @@ export default {
        .el-image{
           width: 100%;
          height: 100%;
+        border-radius: 5%;
        }
-
        .image-overlay {
          position: absolute;
          z-index: 999;

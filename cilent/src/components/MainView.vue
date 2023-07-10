@@ -10,7 +10,6 @@
         </el-submenu>
         <el-menu-item index="sightseeing">旅游景点</el-menu-item>
         <el-menu-item index="foods">吃喝在绥德</el-menu-item>
-        <el-menu-item index="detail">具体细节</el-menu-item>
       </el-menu>
       <div class="button_group">
         <el-button icon="el-icon-search" circle></el-button>

@@ -1,12 +1,12 @@
 <template>
     <div class="detail">
-      <div class="img_container">
+      <div class="img_container" v-loading="loading">
         <el-image
           :src="dataList.src"
           >
         </el-image>
       </div>
-      <div class="content_container">
+      <div class="content_container" v-show="showContent">
           <div class="content_title">
             <div class="left">
               <h3>{{dataList.title}}</h3>
@@ -53,14 +53,21 @@ export default {
   data(){
     return{
       dataList:{
-        src:"https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fss2.meipian.me%2Fusers%2F6596122%2F2cc2b472a9e74e7ebb280d48dc524fcb.jpeg%3Fmeipian-raw%2Fbucket%2Fivwen%2Fkey%2FdXNlcnMvNjU5NjEyMi8yY2MyYjQ3MmE5ZTc0ZTdlYmIyODBkNDhkYzUyNGZjYi5qcGVn%2Fsign%2F642ef70d5ee973d6de818819f2bd14de.jpg&refer=http%3A%2F%2Fss2.meipian.me&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1691305299&t=223e32967080de3c36283b3d139a331e",
+        src:"",
         title:"天下第一狮",
         author:"Vincent van Gogh",
         description:"This landscape of 'Les Vessenots,' on the outskirts of Auvers, shows a group of old country cottages placed just below a raised horizon; further down, wheat fields stretch to the bottom of the canvas, broken only by a few swaying trees. The narrow colour range—mainly bright greens and yellows—and the nervous, agitated brushstrokes following a repetitive, undulating rhythm, are characteristic of the artist's work in his final period.\n" +
             "Van Gogh painted a large number of landscapes in the weeks before his death, always working outdoors. By that time, he was prey to all manner of conflicting moods: the vast expanses of fertile cropland gave him a sense of freedom, but at the same time intensified the feeling of melancholy and loneliness which would eventually lead to his suicide.",
         createTime:"1890",
         size:"w650 x h550 mm",
-      }
+      },
+      loading:true,
+      showContent:false,
+    }
+  },
+  methods:{
+    handleError(){
+      this.$message.error("加载失败~~")
     }
   },
   computed: {
@@ -89,6 +96,12 @@ export default {
       responseType: 'json', // 默认值
       url: 'http://localhost:8084/img',
     }).then((res)=>{
+      this.loading=false
+      if(res.data.length===0){
+        this.$message.error("图片加载失败~~~")
+        return;
+      }
+      this.showContent=true
       this.dataList.src=res.data.src
       this.dataList.title=res.data.title
       this.dataList.author=res.data.author
@@ -96,8 +109,9 @@ export default {
       this.dataList.description=res.data.description
       this.dataList.size=res.data.size
     }).catch((error)=>{
-      console.log(error)
+      this.$message.error("服务器异常~~~");
     })
+
   }
 
 }
